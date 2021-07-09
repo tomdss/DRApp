@@ -1,14 +1,21 @@
 package com.example.mydagger1;
 
+import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
+import android.os.Build;
 import android.os.Bundle;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.SeekBar;
 import android.widget.TextView;
+
+import androidx.annotation.RequiresApi;
 
 import com.example.mydagger1.network.AppApiHelper;
 import com.example.mydagger1.utils.ImageLoader;
 
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import javax.inject.Inject;
@@ -33,8 +40,11 @@ public class MainActivity extends DaggerAppCompatActivity {
     ImageLoader imageLoader;
 
     private TextView tvResult;
-    private ImageView ivAvatar;
+    private TextView tvNum1;
+    private TextView tvNum2;
+    private TextView tvSub;
     private ProgressBar pbLoading;
+    private ProgressBar pbPercent;
 
     private Integer number = 0;
 
@@ -45,8 +55,11 @@ public class MainActivity extends DaggerAppCompatActivity {
         setContentView(R.layout.activity_main);
 
         tvResult = findViewById(R.id.tvResult);
-        ivAvatar = findViewById(R.id.ivAvatar);
         pbLoading = findViewById(R.id.pbLoading);
+        pbPercent = findViewById(R.id.pbPercent);
+        tvSub = findViewById(R.id.tvSub);
+        tvNum1 = findViewById(R.id.tvNumber1);
+        tvNum2 = findViewById(R.id.tvNumber2);
 
         /*appApiHelper.listRepos("tomdss").enqueue(new Callback<Repo>() {
             @Override
@@ -94,17 +107,30 @@ public class MainActivity extends DaggerAppCompatActivity {
         // Observer
         Observer<Long> numberObserver = getNumberObserver();
 
+
+        initNumber();
+
         // Observer subscribing to observable
         numberObservable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(numberObserver);
 
 
     }
 
+    private void initNumber() {
+        Random random = new Random();
+        int num1 = random.nextInt(100);
+        int num2 = random.nextInt(100);
+        tvNum1.setText(num1 + "");
+        tvSub.setText("+");
+        tvNum2.setText(num2 + "");
+
+    }
+
     private Observable<Long> getNumberObservable() {
-        return Observable.interval(1, TimeUnit.SECONDS).take(100).map(new Function<Long, Long>() {
+        return Observable.interval(50, TimeUnit.MILLISECONDS).take(100).map(new Function<Long, Long>() {
             @Override
             public Long apply(@NonNull Long aLong) throws Exception {
-                return aLong * 2;
+                return aLong + 1;
             }
         });
     }
@@ -116,9 +142,11 @@ public class MainActivity extends DaggerAppCompatActivity {
 
             }
 
+            @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onNext(@NonNull Long integer) {
                 tvResult.setText("Number = " + integer);
+                pbPercent.setProgress(integer.intValue());
             }
 
             @Override

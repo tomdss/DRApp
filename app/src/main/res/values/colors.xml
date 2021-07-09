@@ -7,4 +7,53 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    // CYAN
+    <color name="color_80deea">#80deea</color>
+    <color name="color_4dd0e1">#4dd0e1</color>
+    <color name="color_0097a7">#0097a7</color>
+
+    // RED
+    <color name="color_ffcdd2">#ffcdd2</color>
+    <color name="color_ef5350">#ef5350</color>
+    <color name="color_c62828">#c62828</color>
+
+    // DEEP ORANGE
+    <color name="color_do_1">#fbe9e7</color>
+    <color name="color_do_2">#ffccbc</color>
+    <color name="color_do_3">#ffab91</color>
+    <color name="color_do_4">#ff8a65</color>
+    <color name="color_do_5">#ff7043</color>
+    <color name="color_do_6">#ff5722</color>
+    <color name="color_do_7">#f4511e</color>
+    <color name="color_do_8">#e64a19</color>
+    <color name="color_do_9">#d84315</color>
+    <color name="color_do_10">#bf360c</color>
+
+    // AMBER
+    <color name="color_am_1">#ffd54f</color>
+    <color name="color_am_2">#ffc107</color>
+    <color name="color_am_3">#ff8f00</color>
+    <color name="color_am_4">#ff8a65</color>
+    <color name="color_am_5">#ff6f00</color>
+
+    // BLUE GRAY
+    <color name="color_bgray_1">#eceff1</color>
+    <color name="color_bgray_2">#cfd8dc</color>
+    <color name="color_bgray_3">#b0bec5</color>
+    <color name="color_bgray_4">#90a4ae</color>
+    <color name="color_bgray_5">#78909c</color>
+    <color name="color_bgray_6">#546e7a</color>
+    <color name="color_bgray_7">#455a64</color>
+    <color name="color_bgray_8">#37474f</color>
+    <color name="color_bgray_9">#263238</color>
+
+    // DARK
+    <color name="color_da_0">#fafafa</color>
+    <color name="color_da_1">#eeeeee</color>
+    <color name="color_da_2">#e0e0e0</color>
+    <color name="color_da_3">#7B7B7B</color>
+    <color name="color_da_4">#262626</color>
+    <color name="color_da_5">#030303</color>
+
 </resources>
